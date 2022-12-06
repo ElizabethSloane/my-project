@@ -1,4 +1,4 @@
-package model;
+package com.project.main.model;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -8,8 +8,8 @@ import javax.persistence.*;
 
 @Entity
 @RequiredArgsConstructor
-@Table(name = "towns")
-public class Town {
+@Table(name = "sights")
+public class Sight {
 
     @Setter
     @Getter
@@ -18,9 +18,19 @@ public class Town {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-
     @Setter
     @Getter
     private String name;
+
+    @Setter
+    @Getter
+    @Column(name = "id_town")
+    private Integer idTown;
+
+
+    @Setter
+    @Getter
+    private String information;
+
 
 }

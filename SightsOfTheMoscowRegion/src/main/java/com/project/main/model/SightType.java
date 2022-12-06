@@ -1,4 +1,4 @@
-package model;
+package com.project.main.model;
 
 public enum SightType {
     MUSEUM,
