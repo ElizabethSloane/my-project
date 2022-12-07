@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Города Подмосковья и достопримечательности</title>
+    <script src="/js/jquery-3.4.0.min.js"></script>
+    <script src="/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+    <div id="town-form">
+        <form>
+            <h2>Добавление дела</h2>
+            <label>Название дела:</label>
+            <input type="text" name="name" value="">
+            <label>Описание:</label>
+            <input type="text" name="description" value="">
+            <hr>
+            <button id="save-town">Сохранить</button>
+        </form>
+    </div>
+    <h1>Список городов (<span th:text="${townsCount}">0</span>)</h1>
+    <button id="show-add-town-form">Добавить дело</button>
+    <br><br>
+    <div id="town-list">
+        <div th:each="town : ${towns}">
+            <a href="#" class="town-link" th:attr="data-id=${town.id}" th:text="${town.name}"></a>
+        </div>
+    </div>
+    <p th:text="${someParameter}"></p>
+</body>
+</html>
