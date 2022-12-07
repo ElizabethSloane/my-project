@@ -38,6 +38,8 @@ public class SightController {
         model.addAttribute("towns", towns);
         model.addAttribute("townsCount", towns.size());
 
+
+
         LocalDateTime date = LocalDateTime.now();
         return "index";
     }
