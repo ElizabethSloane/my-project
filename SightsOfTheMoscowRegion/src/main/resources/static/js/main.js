@@ -4,7 +4,7 @@ $(function(){
         var townCode = '<a href="#" class="town-link" data-id="' +
             data.id + '">' + data.name + '</a><br>';
         $('#town-list')
-            .append('<div>' + taskCode + '</div>');
+            .append('<div>' + townCode + '</div>');
     };
 
 
@@ -29,7 +29,7 @@ $(function(){
             url: '/towns/' + townId,  //  /books/
             success: function(response)
             {
-                var code = '<span>Описание:' + response.description + '</span>';
+                var code = '<span>Достопримечательности:' + response.sights + '</span>';
                 link.parent().append(code);
             },
             error: function(response)
@@ -43,23 +43,23 @@ $(function(){
     });
 
     //Adding book
-    $('#save-town').click(function()
+    $('#save-sight').click(function()
     {
-        var data = $('#task-form form').serialize();
+        var data = $('#sight-form form').serialize();
         $.ajax({
             method: "POST",
-            url: '/towns/',          //  /books/
+            url: '/towns/id',          //  /books/
             data: data,
             success: function(response)
             {
-                $('#town-form').css('display', 'none');
-                var town = {};
-                town.id = response;
-                var dataArray = $('#town-form form').serializeArray();
+                $('#sight-form').css('display', 'none');
+                var sight = {};
+                sight.id = response;
+                var dataArray = $('#sight-form form').serializeArray();
                 for(i in dataArray) {
-                    town[dataArray[i]['name']] = dataArray[i]['value'];
+                    sight[dataArray[i]['name']] = dataArray[i]['value'];
                 }
-                appendTask(town);
+                appendTask(sight);
             }
         });
         return false;
