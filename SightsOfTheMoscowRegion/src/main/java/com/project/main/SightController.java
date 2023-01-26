@@ -30,15 +30,6 @@ public class SightController {
         this.sightRepository = sightRepository;
     }
 
-//    @GetMapping("/tasks")
-//    public ResponseEntity<?> list() {
-//        Iterable<Task> taskIterable = taskRepository.findAll();
-////        List<Task> tasks = new ArrayList<>();
-////        for (Task task : taskIterable) {
-////            tasks.add(task);
-////        }
-//        return new ResponseEntity<>(taskIterable, HttpStatus.OK);
-//    }
 
     @PostMapping(value = "/towns/{id}/sights", consumes = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<?> add(@PathVariable int id,
@@ -49,7 +40,6 @@ public class SightController {
         }
         else {
             Sight newSight = new Sight();
-//        Task newTask = taskRepository.save(task);
             newSight.setName(data.get("name"));
             newSight.setIdTown(id);
             newSight.setInformation(data.get("information"));
